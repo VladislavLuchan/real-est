@@ -1,0 +1,19 @@
+.contracts-container {
+  background-color: #404E5C;
+  width: 80%;
+  padding: 2rem;
+  text-align: left;
+}
+
+.contracts-container ul {
+  width: 100%;
+  margin: auto;
+}
+
+.item-list {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.4rem 0;
+  font-size: 0.7rem;
+}

@@ -6,6 +6,7 @@ import Landing from './components/landing'
 import Login from './components/login'
 import Register from './components/register'
 import Dashboard from './components/dashboard'
+import Contracts from './components/contracts'
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
         </Route>
         <Route path="/dashboard">
           <Dashboard />
+        </Route>
+        <Route path="/contracts">
+          <Contracts />
         </Route>
       </Switch>
     </main>

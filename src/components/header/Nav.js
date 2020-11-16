@@ -15,7 +15,7 @@ const Nav = () => {
         <NavLink to="/"><h3>Logo</h3></NavLink>
         <ul className="nav-ul nav-menu">
           <li><a href="#">ДОСТУПНІ ЗЕМЛІ</a></li>
-          <li><a href="#">ПРО НАС</a></li>
+          <li><NavLink to="/contracts">ПРО НАС</NavLink></li>
           <li><NavLink to="/dashboard">АДМІНІСТРАЦІЯ</NavLink></li>
         </ul>
         <ul className="nav-ul nav-login">

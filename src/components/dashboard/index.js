@@ -1,16 +1,14 @@
-import React, { useState, createRef } from 'react'
+import React, { useState } from 'react'
 import './Dashboard.css'
 import { Redirect } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import StyledDropzone from '../dropzone'
-// import { addFile } from '../../appSlice'
 import firebase, { timestamp  } from '../../firebase'
 
 const Dashboard = () => {
   const [value, setValue] = useState({ })
   const [fileToPush, setFile] = useState([])
   const { user } = useSelector(state => state.user)
-  // const dispatch = useDispatch()
 
   const handleChange = e => {
     setValue({ ...value, [e.target.name]: e.target.value })
@@ -58,9 +56,6 @@ const Dashboard = () => {
 
     return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
 }
-
-  console.log(fileToPush)
-  // console.log(dropzoneRef.current)
 
   return (
     <>
