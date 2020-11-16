@@ -57,17 +57,19 @@ const Login = ({ history }) => {
   return (
     <div className="auth">
       <h1>Вхід</h1>
-      <form>
-        <div className="form-input">
-          <label htmlFor="email">Електронна адреса:</label>
-          <input onChange={handleChange} value={value.email} type="email" autoFocus name="email" placeholder="exampleee@mail.com" />
-        </div>
-        <div className="form-input">
-          <label htmlFor="password">Пароль:</label>
-          <input onChange={handleChange} value={value.password} type="password"  name="password" />
-        </div>        
-        <button onClick={handleSubmit} type="submit">Зареєструватися</button>
+      <div className="form-container">
+        <form>
+            <div className="form-input">
+              <label htmlFor="email">Електронна адреса:</label>
+              <input onChange={handleChange} value={value.email} type="email" autoFocus name="email" placeholder="exampleee@mail.com" />
+            </div>
+            <div className="form-input">
+              <label htmlFor="password">Пароль:</label>
+              <input onChange={handleChange} value={value.password} type="password"  name="password" />
+            </div>        
+            <button onClick={handleSubmit} type="submit">Вхід</button>
       </form>
+      </div>
     </div>
   )
 }

@@ -40,7 +40,8 @@ const StyledDropzone = (props) => {
     isDragAccept,
     isDragReject
   } = useDropzone({
-    maxFiles: 5,
+    maxFiles: 1,
+    multiple: props.multiple,
     onDrop: props.onDrop
   });
 
@@ -66,14 +67,10 @@ const StyledDropzone = (props) => {
 
   return (
     <div className="container">
-      <div {...getRootProps({style})}>
+      <div className="drop" {...getRootProps({style})}>
         <input {...getInputProps()} />
-        <p>Drag 'n' drop some files here, or click to select files</p>
+        <p className="drag-msg">Виберіть файл, або перенесіть його в цю область</p>
       </div>
-      <aside>
-        <h6>Files</h6>
-        <ul>{files}</ul>
-      </aside>
     </div>
   );
 };

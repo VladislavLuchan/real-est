@@ -28,7 +28,8 @@ const Register = (props) => {
   return (
     <div className="auth">
       <h1>Реєстрація</h1>
-      <form>
+      <div className="form-container">
+        <form>
         <div className="form-input">
           <label htmlFor="email">Електронна адреса:</label>
           <input onChange={handleChange} value={value.email} type="email" autoFocus name="email" placeholder="example@mail.com" />
@@ -44,6 +45,7 @@ const Register = (props) => {
         
         <button disabled={value.password !== value.passwordConfirm} onClick={handleSubmit} type="submit">Зареєструватися</button>
       </form>
+      </div>
     </div>
   )
 }

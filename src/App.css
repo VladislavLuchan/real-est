@@ -1,15 +1,23 @@
 /* authentetication */
 
 .auth {
-  width: 50%;
-  height: 70vh;
+  width: 100%;
+  height: 85vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
+.form-container {
+  width: 55%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .auth form {
+  padding: 1rem;;
   height: 80%;
   width: 60%;
   display: flex;
@@ -58,19 +66,32 @@ form button:hover {
 
 @media (max-width: 1000px) {
   .auth {
-    height: 100%;
-  }
-
-  .auth {
+    height: 80%;
     width: 100%;
   }
 
-  .auth form {
+  .form-container { 
+    width: 80%;
+  }
+
+  .form-container form {
+    width: 100%;
+  }
+
+  .form-container .container .drop input {
+    width: 40%;
+  }
+
+   /* form button {
+     width: 0%;
+   } */
+
+  /* .auth form {
     height: 55%;
     width: 80%;
   }
 
   form button {
     width: 80%;
-  }
+  } */
 }
