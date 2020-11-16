@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React, {useMemo, useState} from 'react';
 import {useDropzone} from 'react-dropzone';
 
 const baseStyle = {
@@ -30,6 +30,8 @@ const rejectStyle = {
 };
 
 const StyledDropzone = (props) => {
+  const [filesTo, setFiles] = useState([]);
+
   const {
     acceptedFiles,
     getRootProps,
@@ -37,7 +39,10 @@ const StyledDropzone = (props) => {
     isDragActive,
     isDragAccept,
     isDragReject
-  } = useDropzone({accept: 'image/*'});
+  } = useDropzone({
+    maxFiles: 5,
+    onDrop: props.onDrop
+  });
 
   const files = acceptedFiles.map(file => (
     <li className="file-name" key={file.path}>
@@ -57,6 +62,8 @@ const StyledDropzone = (props) => {
     isDragAccept
   ]);
 
+  // console.log(acceptedFiles);
+
   return (
     <div className="container">
       <div {...getRootProps({style})}>
@@ -69,6 +76,6 @@ const StyledDropzone = (props) => {
       </aside>
     </div>
   );
-}
+};
 
 export default StyledDropzone

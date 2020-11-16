@@ -11,6 +11,10 @@ const Login = ({ history }) => {
   const dispatch = useDispatch()
 
    useEffect(() => {
+    if(user) {
+      history.replace('/dashboard')
+    }
+
     firebase.auth.onAuthStateChanged(authUser => {
       console.log(authUser)
       if(authUser) {
@@ -27,7 +31,8 @@ const Login = ({ history }) => {
         dispatch(logout())
       }
     })
-  }, [dispatch])
+  }, [dispatch, user])
+
 
   const firebaseLogin = async () => {
     try {
@@ -55,7 +60,7 @@ const Login = ({ history }) => {
       <form>
         <div className="form-input">
           <label htmlFor="email">Електронна адреса:</label>
-          <input onChange={handleChange} value={value.email} type="email" autoFocus name="email" placeholder="example@mail.com" />
+          <input onChange={handleChange} value={value.email} type="email" autoFocus name="email" placeholder="exampleee@mail.com" />
         </div>
         <div className="form-input">
           <label htmlFor="password">Пароль:</label>
