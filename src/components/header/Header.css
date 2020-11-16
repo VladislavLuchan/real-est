@@ -1,0 +1,56 @@
+header {
+  height: 10vh;
+  width: 100%;
+}
+
+nav {
+  width: 90%;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ham-nav {
+  width: 85%;
+}
+
+.hamburger {
+  /* display: none; */
+  margin-top: 1rem;
+  width: 1.5rem;
+}
+
+
+.nav-ul {
+  display: flex;
+}
+
+.nav-ul li {
+  /* display: flex; */
+  font-size: 0.75rem;
+}
+
+
+.nav-ul li:hover, .nav-login li button:hover {
+  cursor: pointer;
+}
+
+.nav-menu {
+  /* margin: auto; */
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+  justify-self: center;
+  margin-left: 10rem;
+}
+
+.nav-login li button {
+  padding: 0.4rem 0.75rem;
+  background-color: transparent;
+  border: 2px solid #FFFFFF;
+  border-radius: 38px;
+  color: #fff;
+  margin-left: 1rem;
+}
