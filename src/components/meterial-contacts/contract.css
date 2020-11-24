@@ -1,0 +1,59 @@
+.contracts-wrapper {
+  height: 100%;
+  width: 100%;
+  background-color: #eaeaea;
+  display: flex;
+
+}
+
+.contracts-table {
+  width: 100%;
+  margin: auto;
+}
+
+
+.contracts-table table {
+  width: 90%;
+  margin: auto;
+  font-size: 0.7rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  -webkit-box-shadow: 1px 14px 41px -1px rgba(0, 0, 0, 0.09);
+  box-shadow: 1px 14px 41px -1px rgba(0, 0, 0, 0.09);
+}
+
+table,
+th,
+td {
+  border: 1px solid transparent;
+  border-collapse: collapse;
+  color: black;
+}
+
+.table__item:nth-child(odd) {
+  background-color: #F5F5F5;
+}
+
+td a {
+  display: block;
+  width: 100%;
+  color: black;
+}
+
+.contracts-table thead th {
+  padding: 1.4rem;
+}
+
+.table__item td {
+  padding: 0.7rem 0;
+}
+
+
+.table__file-image {
+  width: 12%;
+  height: auto;
+}
+
+.table__item-number {
+  font-weight: 600;
+}

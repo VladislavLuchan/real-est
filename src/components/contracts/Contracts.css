@@ -1,6 +1,6 @@
 .contracts-container {
-  background-color: #404E5C;
-  width: 80%;
+  background-color: #29524A;
+  width: 90%;
   padding: 2rem;
   text-align: left;
 }
@@ -14,6 +14,23 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 0.4rem 0;
+  padding: 0.6rem 0;
   font-size: 0.7rem;
+}
+
+.item-list li {
+  width: 7rem;
+  overflow: hidden;
+  display: flex;
+
+}
+
+.contracts-item-header {
+  font-weight: 600;
+}
+
+.contacts-item {
+  /* font-weight: 600; */
+  padding: 0.3rem 0;
+  border-bottom: 1.5px solid white;
 }

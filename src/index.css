@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Playfair+Display:wght@700&display=swap');
 
-html {
-  font-size: 20px;
-  overflow: hidden;
-}
 
 * {
   margin: 0;
@@ -12,6 +8,15 @@ html {
   font-family: 'Montserrat', sans-serif;
   color: white;
   text-align: center;
+}
+
+:root {
+  font-size: 20px;
+  overflow: hidden;
+}
+
+body {
+  background-color: #06070E;
 }
 
 a {

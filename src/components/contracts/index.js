@@ -4,7 +4,6 @@ import Contract from './Contract'
 import './Contracts.css'
 
 const Contracts = () => {
-
   const [contracts, setContracts] = useState([])
 
   useEffect(() => {
@@ -20,6 +19,17 @@ const Contracts = () => {
     <div className="contracts-container">
       <div className="contracts">
         <ul>
+        <li className="contacts-item contracts-item-header">
+          <ul className="item-list">
+            <li>ім'я</li>
+            <li>адресса</li>
+            <li>телефон</li>
+            <li>файл договору</li>
+            <li>автор</li>
+            <li>етап роботи</li>
+            <li>дата внесення</li>
+          </ul>
+        </li>
           { contracts.length ? contracts.map((contract, i) => (
             <Contract 
               key={i}  

@@ -1,5 +1,5 @@
 import './App.css';
-import bg from './img/landing-bg.jpg'
+// import bg from './img/landing-bg.jpg'
 import { Switch, Route } from 'react-router-dom'
 import Header from './components/header'
 import Landing from './components/landing'
@@ -7,10 +7,12 @@ import Login from './components/login'
 import Register from './components/register'
 import Dashboard from './components/dashboard'
 import Contracts from './components/contracts'
+import MatContracts from './components/meterial-contacts'
 
 function App() {
   return (
-    <div className="wrapper" style={styles}> 
+    // <div className="wrapper" style={styles}> 
+    <div className="wrapper"> 
     <Header />
     <main>
       <Switch>
@@ -27,6 +29,9 @@ function App() {
           <Dashboard />
         </Route>
         <Route path="/contracts">
+          <MatContracts />
+        </Route>
+        <Route path="/test">
           <Contracts />
         </Route>
       </Switch>
@@ -35,6 +40,6 @@ function App() {
   );
 }
 
-const styles = { backgroundImage: `url(${bg})`, backgroundPosition: 'center', backgroundSize: 'cover' }
+// const styles = { backgroundImage: `url(${bg})`, backgroundPosition: 'center', backgroundSize: 'cover' }
 
 export default App;
