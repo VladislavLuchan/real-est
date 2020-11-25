@@ -6,7 +6,6 @@ import Landing from './components/landing'
 import Login from './components/login'
 import Register from './components/register'
 import Dashboard from './components/dashboard'
-import Contracts from './components/contracts'
 import MatContracts from './components/meterial-contacts'
 
 function App() {
@@ -30,9 +29,6 @@ function App() {
         </Route>
         <Route path="/contracts">
           <MatContracts />
-        </Route>
-        <Route path="/test">
-          <Contracts />
         </Route>
       </Switch>
     </main>
