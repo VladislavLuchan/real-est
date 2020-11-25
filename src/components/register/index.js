@@ -1,3 +1,10 @@
+/* 
+  @todo
+  [] create usernames
+  [] add users to db
+  [] change apperance
+*/
+
 import React, { useState} from 'react'
 import './Register.css'
 import firebase from '../../firebase'

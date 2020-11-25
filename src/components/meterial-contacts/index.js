@@ -12,6 +12,8 @@ import './contract.css'
   [] search
   [] modal
   [] better progress column
+  [] make table responsive
+  [] replace contracts with this element
 */
 
 const MatContracts = () => {
