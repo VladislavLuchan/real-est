@@ -3,23 +3,14 @@
   width: 100%;
   background-color: #eaeaea;
   display: flex;
+  text-align: center;
+  font-size: clamp(0.5rem, 2vh, 0.7rem);
 
 }
 
 .contracts-table {
   width: 100%;
   margin: auto;
-}
-
-
-.contracts-table table {
-  width: 90%;
-  margin: auto;
-  font-size: 0.7rem;
-  background-color: #ffffff;
-  border-radius: 12px;
-  -webkit-box-shadow: 1px 14px 41px -1px rgba(0, 0, 0, 0.09);
-  box-shadow: 1px 14px 41px -1px rgba(0, 0, 0, 0.09);
 }
 
 table,
@@ -30,24 +21,45 @@ td {
   color: black;
 }
 
-.table__item:nth-child(odd) {
-  background-color: #F5F5F5;
-}
-
 td a {
   display: block;
   width: 100%;
   color: black;
 }
 
+/* non global */
+
+.table {
+  width: clamp(85%, 95vw, 1500px);
+  height: 30vh;
+  margin: auto;
+  background-color: #ffffff;
+  border-radius: 12px;
+  -webkit-box-shadow: 1px 14px 41px -1px rgba(0, 0, 0, 0.09);
+  box-shadow: 1px 14px 41px -1px rgba(0, 0, 0, 0.09);
+}
+
+
+
+.table__item:nth-child(odd) {
+  background-color: #F5F5F5;
+}
+
+/* .table__header {
+  height: 20vh;
+} */
+
 .contracts-table thead th {
-  padding: 1.4rem;
+  padding: clamp(0.2rem, 4vh, 5rem);
 }
 
 .table__item td {
-  padding: 0.7rem 0;
+  padding: clamp(0.2rem, 3vh ,0.7rem) 0;
 }
-
+/* 
+.table__body {
+  height: max-content;
+} */
 
 .table__file-image {
   width: 12%;
@@ -56,4 +68,57 @@ td a {
 
 .table__item-number {
   font-weight: 600;
+}
+
+@media(max-width: 940px) {
+  .contracts-table thead {
+    display: none;
+    font-size: 3vh;
+  }
+
+  .contracts-table table,
+  .contracts-table td {
+    display: block;
+    width: 90%;
+  }
+
+  .contracts-table table {
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  .contracts-table tbody,
+  .table__item {
+    display: block;
+    width: 100%;
+  }
+
+  .table__item {
+    height: max-content;
+    position: relative;
+    margin: 1.5rem 0;
+    padding: 1rem 0;
+    background-color: #F5F5F5;
+    text-align: right;
+    font-weight: 600;
+    border-radius: 38px;
+    -webkit-box-shadow: 1px 14px 41px -1px rgba(0, 0, 0, 0.09);
+    box-shadow: 1px 14px 41px -1px rgba(0, 0, 0, 0.09);
+  }
+
+
+
+  .table__item td::before {
+    content: attr(datalabel);
+    position: absolute;
+    left: 0;
+    margin-left: 1.4rem;
+    font-weight: 500;
+    /* font-size: 0.5rem;  */
+  }
+
+  .table__item:nth-child(odd) {
+    background-color: #F5F5F5;
+  }
+
 }

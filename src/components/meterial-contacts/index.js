@@ -39,8 +39,8 @@ const MatContracts = () => {
   return (
     <div className="contracts-wrapper">
       <div className="contracts-table">
-      <table>
-        <thead>
+      <table className="table">
+        <thead className="table__head">
           <tr>
             {/* <th><SortAscIcon /> №</th> */}
             <th>№</th>
@@ -53,17 +53,17 @@ const MatContracts = () => {
             <th>внесено</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="table__body">
             { contracts.length ? contracts.map((contract, i) => (
-              <tr className="table__item" key={i}>
-                <td className="table__item-number">{i + 1}</td>
-                <td>{contract.name}</td>
-                <td>{contract.adress}</td>
-                <td>{contract.phone}</td>
-                <td>{contract.author}</td>
-                <td>{contract.progress}</td>
-                <td><a href={contract.fileUrl} target="_blank" download="contract">📄</a></td>
-                <td>{contract.timestamp}</td>
+                <tr className="table__item" key={i}>
+                <td datalabel="№ договору" className="table__item-number">{i + 1}</td>
+                <td datalabel="Ім'я">{contract.name}</td>
+                <td datalabel="Адресса">{contract.adress}</td>
+                <td datalabel="Телефон">{contract.phone}</td>
+                <td datalabel="Автор">{contract.author}</td>
+                <td datalabel="Етап роботи">{contract.progress}</td>
+                <td datalabel="Файл договору"><a href={contract.fileUrl} target="_blank" download="contract">📄</a></td>
+                <td datalabel="Дата внесення">{contract.timestamp}</td>
             </tr>
           )): null }
         </tbody>
