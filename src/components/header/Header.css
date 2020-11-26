@@ -12,7 +12,7 @@ nav {
   grid-template-columns: 1fr 1.5fr 1fr;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.8rem;
+  font-size: clamp(0.5rem, 1.3vw, 0.8rem);
   padding: 0 5%;
   /* align-items: center;
   justify-content: space-between; */
