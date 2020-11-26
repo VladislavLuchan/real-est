@@ -7,7 +7,7 @@ import Nav from './Nav'
 const Header = () => {
   const [width, height] = useWindowSize()
   return (
-    <header>
+    <header className="header">
       { width > 1000 ? <Nav /> : <Hamburger /> }
     </header>
   )
