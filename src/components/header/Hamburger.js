@@ -17,23 +17,27 @@ const Hamburger = () => {
     firebase.logout()
   }
 
+  const handleClick = () => {
+    setIsOpen(false);
+  }
+
   return (
     <nav className="hamburger">
       <NavLink to="/" className="hamburger__logo">
         <h3>Logo</h3>
       </NavLink>
-      <HamburgerIcon onToggle={() => setIsOpen(prevIsOpen => !prevIsOpen)} className="harmburger__icon" />
+      <HamburgerIcon toggled={isOpen}  toggle={setIsOpen} className="harmburger__icon" />
 
       {/* hidden menu */}
       <nav style={{ display: isOpen ? 'block' : 'none' }} className="hamburger__menu">
         <ul className="hamburger__list">
           <li className="hamburger__item"><a href="#">Доступні землі</a></li>
-          <li className="hamburger__item"><NavLink to="/contracts">{user ? "Контракти" : "Про нас"}</NavLink></li>
-          <li className="hamburger__item"><NavLink to="/dashboard">{user ? "Додати договір" : "Адміністрація"}</NavLink></li>
+          <li className="hamburger__item"><NavLink onClick={handleClick} to="/contracts">{user ? "Контракти" : "Про нас"}</NavLink></li>
+          <li className="hamburger__item"><NavLink onClick={handleClick} to="/dashboard">{user ? "Додати договір" : "Адміністрація"}</NavLink></li>
           { user ? <li className="hamburger__item" onClick={handleLogOut}>Вийти</li> : (
             <>
-              <li className="hamburger__item"><NavLink to="/login">Увійти</NavLink></li>
-              <li className="hamburger__item"><NavLink to="/register">Зареєструватися</NavLink></li>
+              <li className="hamburger__item"><NavLink onClick={handleClick}  to="/login">Увійти</NavLink></li>
+              <li className="hamburger__item"><NavLink onClick={handleClick} to="/register">Зареєструватися</NavLink></li>
             </>
           )}
         </ul>
