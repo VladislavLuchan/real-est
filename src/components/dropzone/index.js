@@ -2,7 +2,6 @@ import React, {useMemo, useState} from 'react';
 import {useDropzone} from 'react-dropzone';
 
 const baseStyle = {
-  width: '15.4rem',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
@@ -66,12 +65,10 @@ const StyledDropzone = (props) => {
   // console.log(acceptedFiles);
 
   return (
-    <div className="container">
-      <div className="drop" {...getRootProps({style})}>
-        <input {...getInputProps()} />
-        <p className="drag-msg">Виберіть файл, або перенесіть його в цю область</p>
+      <div className="dropzone" {...getRootProps({style})}>
+        <input className="dropzone__input" {...getInputProps()} />
+        <p className="dropzone__message">Виберіть файл, або перенесіть його в цю область</p>
       </div>
-    </div>
   );
 };
 

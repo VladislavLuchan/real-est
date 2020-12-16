@@ -10,9 +10,8 @@
 
 .contracts-table {
   width: 100%;
-  height: 100%;
   margin: auto;
-  margin-top: 10vh;
+  margin-top: 5vh;
 
 }
 
@@ -33,9 +32,11 @@ td a {
 /* non global */
 
 .table {
+  overflow-y: scroll;
   width: clamp(85%, 95vw, 1500px);
-  height: 30vh;
+  /* height: 30vh; */
   margin: auto;
+  margin-bottom: 1rem;
   background-color: #ffffff;
   border-radius: 12px;
   -webkit-box-shadow: 1px 14px 41px -1px rgba(0, 0, 0, 0.09);
@@ -71,6 +72,13 @@ td a {
 
 .table__item-number {
   font-weight: 600;
+}
+
+.table__item td {
+  max-width: 150px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 @media(max-width: 940px) {
@@ -113,7 +121,10 @@ td a {
     box-shadow: 1px 14px 41px -1px rgba(0, 0, 0, 0.09);
   }
 
-
+  .table__item td {
+    max-width: 53%;
+    margin-left: 35vw;
+  }
 
   .table__item td::before {
     content: attr(datalabel);
@@ -122,6 +133,7 @@ td a {
     margin-left: 1.4rem;
     font-weight: 500;
     /* font-size: 0.5rem;  */
+    /* padding-right: 10rem; */
   }
 
   .table__item:nth-child(odd) {

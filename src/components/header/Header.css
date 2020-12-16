@@ -2,6 +2,12 @@
   height: 10vh;
   min-height: 60px;
   width: 100%;
+  background-color: #06070E;
+  color: #fff;
+}
+
+.header a {
+  color: #fff;
 }
 
 .nav {
@@ -16,11 +22,15 @@
   padding: 0 5%;
 }
 
-.nav__menu {
+.nav__menu {  
   display: flex;
 }
 
-.nav__menu li:nth-child(2) {
+.nav__item {
+  color: #fff;
+}
+
+.nav__item:nth-child(2) {
   padding: 0 2rem;
 }
 
@@ -65,6 +75,7 @@
 
 .hamburger__logo {
   font-size: 1rem;
+  color: #fff;
 }
 
 .hamburger__menu {
@@ -87,9 +98,13 @@
   flex-direction: column;
   justify-content: space-around;
   text-align: center;
-  transition: height 2s ease-in-out;
+  transition: 10s all ease;
 }
 
 .hamburger__item {
   font-size: clamp(0.8rem, 3vh, 1rem);
+}
+
+.hamburger__item a {
+  color: #fff;
 }

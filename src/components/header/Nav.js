@@ -17,7 +17,7 @@ const Nav = () => {
         <NavLink to="/" className="nav__logo"><h3>Logo</h3></NavLink>
         <ul className="av-menu nav__menu">
           <li className="nav__item"><a href="#">ДОСТУПНІ ЗЕМЛІ</a></li>
-          <li className="nav__item"><NavLink to="/contracts">{user ? "Контракти" : "ПРО НАС"}</NavLink></li>
+          <li className="nav__item"><NavLink to="/contracts">{user ? "КОНТРАКТИ" : "ПРО НАС"}</NavLink></li>
           <li className="nav__item"><NavLink to="/dashboard">{user ? "ДОДАТИ" : "АДМІНІСТРАЦІЯ"}</NavLink></li>
         </ul>
         <ul className="nav__login">

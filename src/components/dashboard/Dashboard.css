@@ -1,18 +1,9 @@
-.dashboard form {
-  width: 90%;
-  height: 90%;
-}
-
-.file-name {
-  font-size: 0.5rem;
-}
-
-.drag-msg {
-  color: grey;
-  font-size: 0.8rem;
-}
-
-.file-size {
-  /* align-self: flex-start; */
+.form__file-size {
   font-size: 0.6rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.dashboard .form__submit {
+  padding: 0.5rem;
 }

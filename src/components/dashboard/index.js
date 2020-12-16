@@ -3,7 +3,8 @@ import './Dashboard.css'
 import { Redirect } from 'react-router-dom'
 import { useSelector } from 'react-redux';
 import StyledDropzone from '../dropzone'
-import firebase, { timestamp  } from '../../firebase'
+import firebase, { timestamp } from '../../firebase'
+import Input from '../util/Input'
 
 const Dashboard = () => {
   const [value, setValue] = useState({ })
@@ -47,13 +48,10 @@ const Dashboard = () => {
   // format file size function
   const formatBytes = (bytes, decimals = 2) => {
     if (bytes === 0) return '0 Bytes';
-
     const k = 1024;
     const dm = decimals < 0 ? 0 : decimals;
     const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
-
     const i = Math.floor(Math.log(bytes) / Math.log(k));
-
     return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
 }
 
@@ -63,24 +61,42 @@ const Dashboard = () => {
       <Redirect to='/login' /> : 
       (
         <div className="auth">
-          <h1>Додати договір</h1>
-          <div className="form-container">
-              <form>
-            <div className="form-input">
-              <label htmlFor="name">Ім'я:</label>
-              <input onChange={handleChange} value={value.name} type="text" autoFocus name="name" placeholder="ПІБ" />
+          <div className="auth-container">
+          <form className="form dashboard">
+            
+            <h4 className="form__headline">Додати договір</h4>
+
+            <Input 
+              name="name" 
+              autoFocus 
+              label="Ім'я:" 
+              placeholder="ПІБ" 
+              value={value.name} 
+              onChange={handleChange} 
+            />
+
+            <Input 
+              name="adress" 
+              label="Адреса:" 
+              placeholder="прикл. вул. Велніна" 
+              value={value.adress}
+              onChange={handleChange} 
+            />
+
+            <Input
+              type="tel"
+              name="phone" 
+              label="Телефон:"
+              value={value.phone}
+              onChange={handleChange} 
+            /> 
+
+            <div className="form__actions">
+              <StyledDropzone multiple={false} onDrop={handleDrop} />
+              <span className="form__file-size">{ fileToPush.length ? `${fileToPush[0][0].name} - ${formatBytes(fileToPush[0][0].size)}` : null }</span>
+              <button className="form__submit" onClick={handleSubmit} type="submit">Додати</button>
             </div>
-            <div className="form-input">
-              <label htmlFor="adress">Адреса:</label>
-              <input onChange={handleChange} value={value.adress} type="text"  name="adress" placeholder="вул. Леніна" />
-            </div>      
-            <div className="form-input">
-              <label htmlFor="phone">Телефон:</label>
-              <input onChange={handleChange} value={value.phone} type="tel"  name="phone" placeholder="тел." />
-            </div>
-            <StyledDropzone multiple={false} onDrop={handleDrop} />
-            <span className="file-size">{ fileToPush.length ? `${fileToPush[0][0].name} - ${formatBytes(fileToPush[0][0].size)}` : null }</span>
-            <button onClick={handleSubmit} type="submit">Додати</button>
+            
           </form>
           </div>
         </div>
