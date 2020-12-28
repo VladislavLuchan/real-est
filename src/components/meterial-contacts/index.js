@@ -1,11 +1,13 @@
 import React, { useEffect, useState, useMemo } from 'react'
-import Modal from '../util/modal'
 import moment from 'moment'
 import Loader from '../util/loader'
-import 'moment/locale/uk'
 import firebase from '../../firebase'
-import './contract.css'
 import ContracsModal from './ContracsModal'
+import TableEl from './TableEl'
+import 'moment/locale/uk'
+import './contract.css'
+import { TweenMax, Circ } from 'gsap';
+
 // import SortAscIcon from '../icons/SortAscIcon'
 // import SortDescIcon from '../icons/SortDescIcon'
 // import Loader from '../util/loader'
@@ -24,6 +26,8 @@ const MatContracts = () => {
 
   const [contracts, setContracts] = useState([])
   const [loading, setLoading] = useState(true)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [modalContract, setModalContract] = useState({})
   
   // set language for momentjs
   useMemo(() => moment.locale('uk'), [moment])
@@ -43,8 +47,23 @@ const MatContracts = () => {
         })
       })
 
-      
+      // table animation
   }, [])
+
+  useEffect(() => {
+    if(loading === false) {
+      TweenMax.from('table', { y: '100px', autoAlpha: 0, duration: 0.7, ease: Circ })
+    }
+  }, [loading])
+
+  const handleClose = () => {
+    setIsModalOpen(false)
+  }
+
+  const handleOpen = (contact) => {
+    setModalContract(contact)
+    setIsModalOpen(true)
+  }
 
   return (
     <>
@@ -56,7 +75,6 @@ const MatContracts = () => {
       <table className="table">
         <thead className="table__head">
           <tr>
-            {/* <th><SortAscIcon /> №</th> */}
             <th>№</th>
             <th>ім'я</th>
             <th>адресса</th>
@@ -69,28 +87,25 @@ const MatContracts = () => {
         </thead>
         <tbody className="table__body">
             { contracts.length ? contracts.map((contract, i) => (
-              <tr className="table__item" key={i}>
-                <td datalabel="№ договору" className="table__item-number">{i + 1}</td>
-                <td datalabel="Ім'я">{contract.name}</td>
-                <td datalabel="Адресса">{contract.adress}</td>
-                <td datalabel="Телефон">{contract.phone}</td>
-                <td datalabel="Автор">{contract.author}</td>
-                <td datalabel="Етап роботи">
-                  {
-                    contract.progress == "started" ? "❌" : contract.progress == "finished" ? "✔" : 
-                    "🗑"
-                  }
-                </td>
-                <td datalabel="Файл договору"><a href={contract.fileUrl} target="_blank"      download="contract">📄</a></td>
-                <td datalabel="Дата внесення">{contract.timestamp}</td>
-              </tr>
+              <TableEl
+                onTrClick={() => handleOpen({ ...contract, number: i + 1})}
+                adress={contract.adress}
+                author={contract.author}
+                name={contract.name}
+                progress={contract.progress}
+                phone={contract.phone}
+                fileUrl={contract.fileUrl}
+                timestamp={contract.timestamp}
+                number={i + 1}
+                key={i} 
+              />
           )): null }
         </tbody>
       </table> : <Loader />
       }
     </div>
     </div>
-    <ContracsModal />
+    <ContracsModal className="contract-modal" modalContract={modalContract} isOpen={isModalOpen} handleClose={handleClose} />
     </>
   )
 }

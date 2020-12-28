@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import { useSelector } from 'react-redux';
 import firebase from '../../firebase'
 
@@ -14,7 +14,7 @@ const Nav = () => {
 
   return (
     <nav className="nav">
-        <NavLink to="/" className="nav__logo"><h3>Logo</h3></NavLink>
+        <Link to="/" className="nav__logo"><h3>Logo</h3></Link>
         <ul className="av-menu nav__menu">
           <li className="nav__item"><a href="#">ДОСТУПНІ ЗЕМЛІ</a></li>
           <li className="nav__item"><NavLink to="/contracts">{user ? "КОНТРАКТИ" : "ПРО НАС"}</NavLink></li>

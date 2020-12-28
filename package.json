@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^12.1.10",
     "firebase": "^8.0.2",
     "formik": "^2.2.5",
+    "gsap": "^3.5.1",
     "hamburger-react": "^2.3.0",
     "moment": "^2.29.1",
     "react": "^17.0.1",

@@ -1,15 +1,42 @@
 import React from 'react'
 import Modal from '../util/modal'
 import { Formik, Form, Field } from 'formik';
-import Input from '../util/Input'
+import './contractModal.css'
 
-const ContracsModal = () => {
+const ContracsModal = ({ modalContract, ...attr }) => {
   return (
-  <Modal>
-    <h3 className="modal__headline">Редагувати контракт</h3>
-    <Formik
-       initialValues={{ email: '', password: '' }}
+  <Modal { ...attr }>
+    { modalContract.number ? 
+      <>
+        <div className="contract-modal__header">
+          <h3>Контракт №{modalContract.number}</h3>
+        </div>
+        <div className="contract-modal__body">
+          <ul className="contract-modal__list">
+            <li>Ім'я: <strong>{modalContract.name}</strong></li>
+            <li>Адрес: <strong>{modalContract.adress}</strong></li>
+            <li>Номер телефону: <strong>{modalContract.phone}</strong></li>
+            <li>Завантажити файл:  <a href={modalContract.fileUrl} target="_blank" download="contract">📄</a></li>
+            <li>Автор: <strong>{modalContract.author}</strong></li>
+            <li>Етап роботи: <strong>{modalContract.progress}</strong></li>
+            <li>Дата внесення: <strong>{modalContract.timestamp}</strong></li>
+          </ul>
+        </div>
+        <div className="contract-modal__footer"></div>
+      </>
+      : <h3>Нічого не знайдено</h3>
+    }
+  </Modal>
+  )
+}
 
+export default ContracsModal
+{/* <h3 className="modal__headline">Редагувати контракт</h3>
+    <Formik
+      // initial values
+       initialValues={{ email: '', password: '' }}
+      
+       // validation
        validate={values => {
          const errors = {};
 
@@ -50,9 +77,4 @@ const ContracsModal = () => {
            </button>
          </Form>
        )}
-     </Formik>
-  </Modal>
-  )
-}
-
-export default ContracsModal
+     </Formik> */}

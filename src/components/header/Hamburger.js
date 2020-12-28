@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import firebase from '../../firebase'
 import { useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import { Squash as HamburgerIcon } from 'hamburger-react';
 
 /* 
@@ -23,9 +23,9 @@ const Hamburger = () => {
 
   return (
     <nav className="hamburger">
-      <NavLink to="/" className="hamburger__logo">
+      <Link to="/" className="hamburger__logo">
         <h3>Logo</h3>
-      </NavLink>
+      </Link>
       <HamburgerIcon toggled={isOpen}  toggle={setIsOpen} className="harmburger__icon" />
 
       {/* hidden menu */}

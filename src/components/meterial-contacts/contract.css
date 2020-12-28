@@ -49,9 +49,9 @@ td a {
   background-color: #F5F5F5;
 }
 
-/* .table__header {
-  height: 20vh;
-} */
+.table__item:hover {
+  cursor: pointer;
+}
 
 .contracts-table thead th {
   padding: clamp(0.2rem, 4vh, 5rem);
@@ -80,6 +80,7 @@ td a {
   white-space: nowrap;
   overflow: hidden;
 }
+
 
 @media(max-width: 940px) {
   .contracts-table {

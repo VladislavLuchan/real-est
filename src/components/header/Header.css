@@ -8,7 +8,14 @@
 
 .header a {
   color: #fff;
+  transition-duration: 0.5s;
 }
+
+.header a:hover {
+  color: #ff6c0a;
+}
+
+
 
 .nav {
   width: 100%;
@@ -107,4 +114,8 @@
 
 .hamburger__item a {
   color: #fff;
+}
+
+.active {
+  color: #ff6c0a !important;
 }

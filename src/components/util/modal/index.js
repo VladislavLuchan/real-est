@@ -1,31 +1,38 @@
-import React, { useState } from 'react'
-import ReactDOM from 'react-dom'
+import React, { useRef, useEffect } from 'react'
 import './Modal.css'
+import Portal from '../Portal'
+import { TweenMax, Circ } from 'gsap';
 
-const Modal = ({ children, style, className }) => {
-  const [isOpen, setIsOpen] = useState(false)
-  const handleModalClose = () => {
-    setIsOpen(false);
-  }
+const Modal = ({ children, isOpen = false, className, handleClose }) => {
+  
+  let overlay = useRef(null)
 
-  return ReactDOM.createPortal(
+  useEffect(() => {
+      console.log('test')
+      TweenMax.from('.page-overlay', { autoAlpha: 0.4, duration: 0.5 } )
+      TweenMax.from('.modal', { y: '20px', duration: 0.356, ease: Circ })
+  }, [isOpen])
+
+  return (
     <>
-      {/* full page overlay */}
-      <div 
-        className="page-overlay" 
-        onClick={handleModalClose} style={{ display: isOpen ? 'block' : 'none' }}
-      ></div>
+    { isOpen ?
+      <Portal destenation="modal__portal">
+        <div 
+          ref={el => { overlay = el }}
+          className="page-overlay" 
+          onClick={handleClose}
+        ></div>
 
-      {/* modal component */}
-      <div 
-        className={`modal ${className}`} 
-        style={{ display: isOpen ? 'block' : 'none', ...style }} 
-        onClick={e => e.preventDefault()} 
-      >
-        { children }
-      </div>
-
-    </>, document.getElementById('modal__portal'))
+        <div 
+          className={`modal ${className}`} 
+          onClick={e => e.preventDefault()} 
+        >
+          { children }
+        </div>
+      </Portal> : null
+    }
+    </>
+  )
 }
 
 export default Modal
