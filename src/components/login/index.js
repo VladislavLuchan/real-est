@@ -12,28 +12,28 @@ const Login = ({ history }) => {
   const user = useSelector(selectUser)
   const dispatch = useDispatch()
 
-   useEffect(() => {
-    if(user) {
-      history.replace('/dashboard')
-    }
+  //  useEffect(() => {
+  //   if(user) {
+  //     history.replace('/dashboard')
+  //   }
 
-    firebase.auth.onAuthStateChanged(authUser => {
-      console.log(authUser)
-      if(authUser) {
-        // the user is logged in 
-        dispatch(login({
-          uid: authUser.uid,
-          photo: authUser.photoURL,
-          email: authUser.email,
-          displayName: authUser.displayName
-        }))
+  //   firebase.auth.onAuthStateChanged(authUser => {
+  //     console.log(authUser)
+  //     if(authUser) {
+  //       // the user is logged in 
+  //       dispatch(login({
+  //         uid: authUser.uid,
+  //         photo: authUser.photoURL,
+  //         email: authUser.email,
+  //         displayName: authUser.displayName
+  //       }))
 
-      } else {
-        // the user is logged out
-        dispatch(logout())
-      }
-    })
-  }, [dispatch, user])
+  //     } else {
+  //       // the user is logged out
+  //       dispatch(logout())
+  //     }
+  //   })
+  // }, [dispatch, user])
 
 
   const firebaseLogin = async () => {

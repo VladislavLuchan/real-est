@@ -9,7 +9,7 @@ const Modal = ({ children, isOpen = false, className, handleClose }) => {
 
   useEffect(() => {
       console.log('test')
-      TweenMax.from('.page-overlay', { autoAlpha: 0.4, duration: 0.5 } )
+      TweenMax.from('.page-overlay', { autoAlpha: 0.4, duration: 0.2 } )
       TweenMax.from('.modal', { y: '20px', duration: 0.356, ease: Circ })
   }, [isOpen])
 

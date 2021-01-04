@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import firebase from '../../firebase'
 import { useSelector } from 'react-redux';
 import { NavLink, Link } from 'react-router-dom'
 import { Squash as HamburgerIcon } from 'hamburger-react';
+import { TweenMax, Expo } from 'gsap';
 
 /* 
   @todo
@@ -13,12 +14,28 @@ const Hamburger = () => {
   const [isOpen, setIsOpen] = useState(false)
   const { user } = useSelector(state => state.user)
 
+
+  useEffect(() => {
+    if(isOpen) {
+      TweenMax.fromTo('.hamburger__menu', { height: '0px'}, { height: '50vh', duration: 0.7, ease: Expo.easeOut })
+    }
+
+    // if(!isOpen ) {
+    //   alert(123)
+    //   TweenMax.to('.hamburger__menu', { height: '0px', duration: 0.7, ease: Expo.easeOut})
+    // }
+
+  }, [isOpen])
+
+
   const handleLogOut = () => {
     firebase.logout()
   }
 
   const handleClick = () => {
-    setIsOpen(false);
+    TweenMax.to('.hamburger__menu', {  height: '0px', display: 'none', duration: 0.4, ease: Expo.easeOut}).then(e => {
+      setIsOpen(false);
+    })
   }
 
   return (
